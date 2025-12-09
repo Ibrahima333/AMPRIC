@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='image/logo.png')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMPRIC</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Paprika&family=Sonsie+One&display=swap" rel="stylesheet">
+    <script src="{{url_for('static', filename='js/js.js')}}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous">
+    </script>
+   
+</head>
+
+<body>
+  <nav class="navbar nav-sn  navbar-expand-lg navbar-light position-fixed fixed-top">
+    <div class="container-fluid mw-100 mh-100 b-nav">
+
+      <a class="navbar-brand d-block mw-100 mh-100 m-0 " href="#">
+        <img src="{{url_for('static', filename='image/logo.jpeg')}}"  class="logo-sn logo" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end mw-100" id="navbarNav">
+        <ul class="navbar-nav elements w-50 justify-content-evenly ">
+          <li class="nav-item">
+            <a class="nav-link "href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Contact</a>
+          </li>
+       
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  {% with message = get_flashed_messages(with_categories=true) %}
+        {%if message %} 
+
+            {% for categorie, msg in message %}
+
+                <div class="{{categorie}}">
+                  <p>{{msg}}</p>
+                </div> 
+
+            {% endfor %}
+
+        {%endif%}
+  {% endwith %}
+    
+
+  <div class="container-fluid p-0 section1">
+    <div class="message">
+      "Certains gestes semblent anodins. <strong>Pour moi c'est un défi quotidien.</strong>"  
+    </div>
+    <button class="button button-popup" onclick="active_popup()">
+      Rejoignez-nous 
+    </button>
+  </div>
+
+  <div class="overlay-popup" id="popup">
+    <div class="overlay-content">
+
+      <div class="content-popup">
+          <button class="close-btn" onclick="active_popup()">x</button>
+    
+          <h3>Rejoignez L'AMPRIC</h3>
+    
+          <form id="form-association" action="{{url_for('home')}}" method="POST">
+               {%if erreur%} <p class="erreur"> {{erreur}}</p> {%endif%}
+              <label>Nom </label>
+              <input type="text" name="nom" required>
+    
+              <label>Prenom </label>
+              <input type="text" name="prenom" required>
+    
+              <label>Email</label>
+              <input type="email" name="email" required>
+    
+              <label>Téléphone <span class="erreur_tel">(Le numero doit contenir 7 chiffres, commençant par 7, 8 ou 9.)</span></label>
+              <input id="phone" type="number" name="tel">
+    
+              <label>Message</label>
+              <textarea name="message" rows="2"  maxlength="200" ></textarea>
+    
+              <button type="submit" class="submit-btn">Envoyer</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+  <div class="container-fluid section2 p-0">
+    <p class="text-center">
+      Cuisiner, puiser de l’eau, attacher son pagne ou même écrire un simple message…
+      pour les milliers de Maliens atteints de polyarthrite rhumatoïde et de rhumatismes inflammatoires chroniques,
+      chaque geste du quotidien devient un véritable combat contre la douleur.
+    </p>
+    <h2 class="text-center ">
+      Ensemble contre la douleur pour mieux vivre avec la Polyarthrite
+      Rhumatoïde
+    </h2>
+  </div>
+
+  <div class="container-fluid section3 ">
+    <div class="row section3-info">
+        <div class="col paragraphe">
+            <h3 class="text-center">
+              Mot de Diaminatou Camara  
+            </h3>
+            <p>Présidente de l’AMPRIC</p>
+
+        
+            <h4 class="text-center" class="phrase"> 
+              " Sage-femme avec plus de 20 ans d’expérience, titulaire
+              d’un master en management de santé.
+              Depuis 22 ans de vie avec la polyarthrite rhumatoïde, j’ai
+              appris à transformer la douleur en force et l’épreuve en
+              engagement. Aujourd’hui, il est temps pour moi de
+              partager cette expérience et de tendre la main à toutes
+              celles et ceux qui souffrent en silence ".
+            </h4>
+
+            <div class="logo">
+              <img src="{{url_for('static',filename='image/logo.jpeg')}}" class="logo" alt="">
+            </div>
+        </div>
+
+        
+        <div class="col section3-img">
+          <img src="{{url_for('static',filename='image/img2.jpeg')}}" alt="">
+        </div>
+
+      </div>  
+  </div>
+
+
+<div class="container-fluid section4 ">
+   
+    <div class="image_section4">
+      <img src="{{url_for('static', filename='image/img7.jpeg')}}" alt="">
+    </div>
+    <div class="section4_info"> 
+      <h2 > Polyarthrite rhumatoïde c'est quoi ? </h2>
+      <p>
+        La polyarthrite rhumatoïde est une maladie inflammatoire chronique qui touche principalement les articulations.
+        C’est une maladie auto-immune : le système immunitaire, qui normalement protège le corps, se trompe et attaque 
+        la membrane qui entoure les articulations.
+        Sans traitement, elle peut progressivement abîmer les articulations et limiter les mouvements.
+        La maladie peut toucher toutes les articulations, mais elle commence souvent au niveau des mains, des poignets,
+        des pieds et de façon symétrique (des deux côtés du corps).
+
+      </p>
+    </div>
+</div>
+
+
+<div class="container-fluid section5">
+  <div class="info_section5">
+    <h1>
+      l’AMPRIC, créée par les malades, pour les malades !
+    </h1>
+    <p>
+      AMPRIC est une structure dédiée à l’information, l’écoute, le
+      soutien et l’orientation des personnes atteintes de
+      polyarthrite et de rhumatismes inflammatoires chroniques.
+      Elle est reconnue par la Loi n°04-038 du 5 août 2004
+      relative aux associations et enregistrée au Secrétariat du
+      Gouvernorat du District de Bamako.
+    </p>
+    <h1> Nos missions </h1>
+  </div>
+  <div class="missions">
+      <div class="tache1">
+          <p>
+        Améliorer la qualité de vie des personnes atteintes et de
+        leurs proches.
+        </p>
+      </div>
+      <div class="tache2">
+        <p>
+        Créer un véritable dialogue entre malades et professionnels
+        de santé.
+      </p>
+      </div>
+
+      <div class="tache3">
+        <p>
+          Sensibiliser le grand public sur ces maladies encore trop peu
+          connues.
+        </p>
+      </div>
+
+  </div>
+
+</div>
+<div class="section6 container-fluid ">
+  <h1> Telecharger le flyer ici </h1>
+  <a class="btn-download" href="{{url_for('static', filename="image/Flyer.pdf")}}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+  </svg>Telecharger</a>
+</div>
+</body>
+
+<footer class="footer">
+  <p>© 2025 - Tous droits réservés | SoryCop</p>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1CtW2KBjp1/?mibextid=wwXIfr" target="_blank" class="facebook">Facebook <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+    </svg>
+  </a>
+    <a href="https://www.linkedin.com/company/association-malienne-des-polyathritiques-et-des-rhumatismes-inflammatoires-chroniques/" target="_blank" class="linkedin">LinkedIn 
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+    </svg>
+  </a>
+    <a href="#" target="_blank" class="tiktok">Tiktok
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+</html>
