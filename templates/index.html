@@ -124,36 +124,35 @@
     </h2>
   </div>
 
-  <div class="container-fluid section3 ">
-    <div class="row section3-info">
-        <div class="col paragraphe">
-            <h3 class="text-center">
-              Mot de Diaminatou Camara  
-            </h3>
-            <p>Présidente de l’AMPRIC</p>
+  <div class="container-fluid section3" aria-labelledby="section3-title">
+    <div class="container section3-inner">
+      <div class="section3-grid">
 
-        
-            <h4 class="text-center" class="phrase"> 
-              " Sage-femme avec plus de 20 ans d’expérience, titulaire
-              d’un master en management de santé.
-              Depuis 22 ans de vie avec la polyarthrite rhumatoïde, j’ai
-              appris à transformer la douleur en force et l’épreuve en
-              engagement. Aujourd’hui, il est temps pour moi de
-              partager cette expérience et de tendre la main à toutes
-              celles et ceux qui souffrent en silence ".
-            </h4>
+        <article class="paragraphe" aria-describedby="presidente-desc">
+          <h3 id="section3-title">Mot de Diaminatou Camara</h3>
+          <p class="role">Présidente de l’AMPRIC</p>
 
-            <div class="logo">
-              <img src="{{url_for('static',filename='image/logo.jpeg')}}" class="logo" alt="">
-            </div>
-        </div>
+          <blockquote id="presidente-desc" class="president-quote">
+            Sage-femme avec plus de 20 ans d’expérience, titulaire d’un master en management de santé.
+            Depuis 22 ans de vie avec la polyarthrite rhumatoïde, j’ai appris à transformer la douleur en force
+            et l’épreuve en engagement. Aujourd’hui, il est temps pour moi de partager cette expérience et de
+            tendre la main à toutes celles et ceux qui souffrent en silence.
+          </blockquote>
 
-        
-        <div class="col section3-img">
-          <img src="{{url_for('static',filename='image/img2.jpeg')}}" alt="">
-        </div>
+          <div class="paragraphe-foot">
+            <figure class="logo-figure">
+              <img src="{{url_for('static',filename='image/logo.jpeg')}}" alt="Logo AMPRIC">
+            </figure>
+          </div>
+        </article>
 
-      </div>  
+        <figure class="section3-media" aria-hidden="false">
+          <img src="{{url_for('static',filename='image/img_gemini.png')}}" alt="Portrait de Diaminatou Camara">
+          <figcaption class="media-caption">Diaminatou Camara — Présidente</figcaption>
+        </figure>
+
+      </div>
+    </div>
   </div>
 
 
