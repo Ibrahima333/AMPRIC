@@ -24,7 +24,6 @@ let section1 = document.querySelector(".section1")
 
 const liste_image = [
     "/static/image/img1.jpeg",
-    "/static/image/img3.jpg",
     "/static/image/img4.jpg",
     "/static/image/img6.jpg"
 ];
