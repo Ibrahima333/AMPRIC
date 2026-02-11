@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+  {% block title %}Nos objectifs - AMPRIC{% endblock %}
+
+  <!-- lien pour le css de la page d'objectifs -->
+  {%block style %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/objectif.css')}}">
+  {% endblock %}
+
+
+
+  {% block content %}
+  <h1 > Les objectifs de l'AMPRIC</h1>
+  <p> les </p>
+    <div class="goal1">
+        <div class="img-goal1"> <img src="{{url_for('static', filename='image/inf1.jpg')}}" alt=""></div>
+        <div class="text">
+            <h2>Objectif 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sint vel ipsa c
+                onsequuntur excepturi, eaque eligendi officia, suscipit delectus, corporis autem ipsam expedita. Quo temporibus ut omnis voluptatem totam deleniti.
+            </p>
+        </div>
+
+    </div>
+    <div class="goal1">
+        <div class="text">
+            <h2>Objectif 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sint vel ipsa c
+                onsequuntur excepturi, eaque eligendi officia, suscipit delectus, corporis autem ipsam expedita. Quo temporibus ut omnis voluptatem totam deleniti.
+            </p>
+        </div>
+        <div class="img-goal1"> <img src="{{url_for('static', filename='image/inf1.jpg')}}" alt=""></div>
+
+    </div>
+ 
+  {% endblock %}

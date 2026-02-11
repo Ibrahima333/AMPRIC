@@ -450,6 +450,7 @@ input, textarea{
  .section5{
   background-color:rgba(5, 95, 239, 0.628);
   margin-top: 100px;
+  height: 80vh;
   }
 
  .info_section5 p{

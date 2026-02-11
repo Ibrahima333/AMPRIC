@@ -1,0 +1,35 @@
+
+h1 {
+    text-align: center;
+    margin-top: 100px !important;
+    color: #e70000;
+}
+.goal1 {
+    width: 80%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 70px;
+ }
+ .img-goal1 {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+ }
+ .img-goal1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+
+ .goal1 .text{
+    width: 50%;
+    font-size: 20px;
+    text-align: justify;
+    color: #333;
+ }

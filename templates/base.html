@@ -5,7 +5,8 @@
   <link rel="icon" type="image/png" href="{{url_for('static', filename='image/logo.png')}}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}AMPRIC{% endblock %}</title>
-  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+  {% block style %}{% endblock %}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,10 +38,13 @@
       <div class="collapse navbar-collapse justify-content-end mw-100" id="navbarNav">
         <ul class="navbar-nav elements w-50 justify-content-evenly ">
           <li class="nav-item">
-            <a class="nav-link "href="#">Accueil</a>
+            <a class="nav-link "href="{{ url_for('home') }}">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">A propos</a>
+            <a class="nav-link " href="#">Qui sommes-nous ?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ url_for('objectifs') }}">Nos objectifs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#">Contact</a>
@@ -77,7 +81,7 @@
     </div>
 
     <div class="footer-col footer-contact" aria-label="Contact et réseaux">
-      <p class="contact-mail">contact@ampric.org</p>
+      <p class="contact-mail">contactampric@gmail.com </p>
       <div class="social-links" role="list">
         <a role="listitem" href="https://www.facebook.com/" target="_blank" aria-label="Facebook" class="social">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.3c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12H20l-1.5 3.9h-.5v7A10 10 0 0 0 22 12z"/></svg>

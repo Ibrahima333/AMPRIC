@@ -76,6 +76,11 @@ def home():
     
     else:
         return render_template("index.html")
+    
+# route pour la page d'objectifs
+@app.route('/objectifs')
+def objectifs():
+    return render_template("objectifs.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
