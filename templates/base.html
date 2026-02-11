@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}AMPRIC{% endblock %}</title>
   <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
-  {% block style %}{% endblock %}
+ {% block style %}{% endblock %}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,6 @@
         <ul class="navbar-nav elements w-50 justify-content-evenly ">
           <li class="nav-item">
             <a class="nav-link "href="{{ url_for('home') }}">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">Qui sommes-nous ?</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{ url_for('objectifs') }}">Nos objectifs</a>
