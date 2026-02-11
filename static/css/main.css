@@ -230,9 +230,10 @@ input, textarea{
   }
   
  .section2 h2{
-  background-color: rgb(136, 234, 8) !important;
+  background-image: url("/static/image/banner_contact.jpg");
+background-size: cover;
   padding-bottom: 25px;
-  color: rgb(6, 6, 178);
+  color: rgb(255, 255, 255);
    padding: 70px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);  
   width: 100%;
@@ -448,18 +449,19 @@ input, textarea{
  }
 
  .section5{
-  background-color:rgba(5, 95, 239, 0.628);
+background-image: url("/static/image/banner_contact.jpg");
+background-size: cover;
   margin-top: 100px;
   height: 80vh;
   }
 
  .info_section5 p{
   width: 75%;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 252, 252);
   padding: 20px;
  }
 .section5 h1{
-  color: rgb(0, 0, 0);
+  color: rgb(255, 245, 245);
   font-family: "Archivo Black", sans-serif;
   font-weight: 400;
   font-style: normal;

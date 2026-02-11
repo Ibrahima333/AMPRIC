@@ -9,12 +9,12 @@
 .goal_description{
    margin-top: 60px;
     text-align: center;
-    color: var(--text);
+    color: white;
     padding: 30px 30px;
     font-size: 20px;
     font-family: "Archivo Black", sans-serif;
     font-weight: 400;
-    background-image: url("/static/image/e.jpg");
+    background-image: url("/static/image/banner_contact.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 10px;
