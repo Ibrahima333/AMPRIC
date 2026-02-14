@@ -108,7 +108,7 @@ def contact():
         msg = Message(
             subject=f"Message de {nom}",
             sender=email,
-            recipients=["keitasoryibrahima123@gmail.com"]
+            recipients=["keitasoryibrahima1234@gmail.com"]
         )
         msg.body = f"Message de {nom} : {message}"
         mail.send(msg)
@@ -129,6 +129,4 @@ def dashboard():
     print(utilisateurs)
     return render_template("dashbord.html", users=utilisateurs, columns=colonnes)
     
-   
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+ 
