@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{% block title %}Dashboard - AMPRIC{% endblock %}
+<!-- lien pour le css de la page de dashboard -->
+{%block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid dashboard">
+    <div class="overlay_dashboard">
+        <div class="content_dashboard">
+            <h1>Dashboard</h1>
+         </div>
+    </div>
+</div>
+{% endblock %}

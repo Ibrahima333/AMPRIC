@@ -1,4 +1,5 @@
 from flask import Flask ,render_template , request,url_for,redirect,flash
+from flask_mail import Mail, Message
 import pymysql
 from dotenv import load_dotenv
 import os
@@ -7,6 +8,7 @@ import os
 
 # Charger les variables d'environnement
 load_dotenv()
+mail = Mail()
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -19,6 +21,18 @@ def mysql():
         database=os.getenv("DB_NAME"),
         cursorclass=pymysql.cursors.DictCursor
     )
+#configuration de Flask-Mail
+def configure_mail(app):
+    app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
+    app.config['MAIL_PORT'] = int(os.getenv("MAIL_PORT"))
+    app.config['MAIL_USE_TLS'] = os.getenv("MAIL_USE_TLS") == "True"
+    app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+    app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+
+    mail.init_app(app)
+
+configure_mail(app) 
+
 #verification_doublons numero de telephone 
 def check_duplicate_number(tel) :
     connexion= mysql()
@@ -84,9 +98,37 @@ def objectifs():
 
 
 # route pour la page de contact
-@app.route('/contact')
+@app.route('/contact',methods=["POST","GET"])
 def contact():
-    return render_template("contact.html")  
+    if request.method == "POST" :
+        nom = request.form.get("nom")
+        email = request.form.get("email")
+        message = request.form.get("message")
+        
+        msg = Message(
+            subject=f"Message de {nom}",
+            sender=email,
+            recipients=["keitasoryibrahima123@gmail.com"]
+        )
+        msg.body = f"Message de {nom} : {message}"
+        mail.send(msg)
+        flash("Votre message a été envoyé avec succès.", "success")
+    return render_template("contact.html") 
 
+@app.route('/dashboard')
+def dashboard():
+    connexion = mysql()
+    cursor = connexion.cursor()
+    query = "SELECT id, nom, prenom, telephone, email, comment FROM utilisateurs"
+    cursor.execute(query)
+    utilisateurs = cursor.fetchall()
+    cursor.close()
+    connexion.close()
+
+    colonnes = ["id", "nom", "prenom", "telephone", "email", "comment"]
+    print(utilisateurs)
+    return render_template("dashbord.html", users=utilisateurs, columns=colonnes)
+    
+   
 if __name__ == "__main__":
     app.run(debug=True)

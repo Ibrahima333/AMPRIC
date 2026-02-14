@@ -16,14 +16,29 @@
         </div>
     </div>
 </div>
+ 
+
+  {% with message = get_flashed_messages(with_categories=true) %}
+        {%if message %} 
+
+            {% for categorie, msg in message %}
+
+                <div class="{{categorie}}">
+                  <p>{{msg}}</p>
+                </div> 
+
+            {% endfor %}
+
+        {%endif%}
+  {% endwith %}
 <div class="container contact_form">
     <h1>
         contactez-nous :
     </h1>
     <p> Des questions ou des commentaires ?
          Ecrivez-nous simplement un message</p>
-    <form action="#" method="post" class="contact_form">
-        <input type="text" name="name" placeholder="Votre nom" required>
+    <form action="{{ url_for('contact') }}" method="post" class="contact_form">
+        <input type="text" name="nom" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre email" required>
         <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
         <button type="submit">Envoyer</button>
@@ -33,10 +48,10 @@
         <div class="carte">
             <div class="carte_info"> 
                 <h2>Notre adresse</h2>
-                <p>AMPRIC, 123 Rue de la Solidarité, 75000 Paris, France</p>
+                <p>AMPRIC, 123 Rue de la Solidarité</p>
              </div>
              <div class="carte_icone">
-                <iframe src="" frameborder="0"></iframe>
+               <img src="{{url_for('static', filename='/image/icon_adress.png')}}" alt="" width="100px" color ="white">
              </div>
         </div>
        
@@ -46,17 +61,17 @@
                 <p>+223 782306178</p>
              </div>
              <div class="carte_icone">
-                <iframe src="" frameborder="0"></iframe>
+               <img src="{{url_for('static', filename='/image/icon_phone.png')}}" alt="" width="100px" color ="white">
              </div>
         </div>
        
-        <div class="carte">
+        <div class="carte carte_email">
             <div class="carte_info"> 
                 <h2>Notre email</h2>
                 <p>contact@ampric.com</p>
              </div>
              <div class="carte_icon">
-               <img src="{{url_for('static', filename='/image/address_icon.png')}}" alt="">
+               <img src="{{url_for('static', filename='/image/icon_email.png')}}" alt="" width="100px" color ="white">
                
              </div>
         </div>
