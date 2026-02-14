@@ -14,13 +14,18 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 #connection a mysql
 def mysql():
-    return pymysql.connect(
-        host= os.getenv("DB_HOST"),
-        user= os.getenv("DB_USER"),
-        password= os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME"),
-        cursorclass=pymysql.cursors.DictCursor
-    )
+    try:
+        return pymysql.connect(
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME"),
+            cursorclass=pymysql.cursors.DictCursor
+        )
+    except Exception as e:
+        print("ERREUR MYSQL:", e)
+        raise
+
 #configuration de Flask-Mail
 def configure_mail(app):
     app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
